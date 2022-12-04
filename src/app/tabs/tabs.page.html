@@ -1,0 +1,28 @@
+<ion-tabs (ionTabsDidChange)="setCurrentTab($event)">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="movies">
+      <div
+        *ngIf="currentTab==='movies'; then moviesSelected else moviesNotSelected"
+      ></div>
+      <ng-template #moviesSelected>
+        <ion-icon name="tv"></ion-icon>
+      </ng-template>
+      <ng-template #moviesNotSelected
+        ><ion-icon name="tv-outline"></ion-icon
+      ></ng-template>
+      <ion-label>Movies</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="favorites">
+      <div
+        *ngIf="currentTab==='favorites'; then favoritesSelected else favoritesnotSelected"
+      ></div>
+      <ng-template #favoritesSelected>
+        <ion-icon name="bookmarks"></ion-icon
+      ></ng-template>
+      <ng-template #favoritesnotSelected>
+        <ion-icon name="bookmarks-outline"></ion-icon></ng-template
+      ><ion-label>Favorites</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

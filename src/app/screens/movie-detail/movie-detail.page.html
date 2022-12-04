@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{detail?.['title']}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <img
+          class="poster"
+          [src]="imgUrl+'/w400/'+detail?.['poster_path']"
+          alt="The Wisconsin State Capitol building in Madison, WI at night"
+        />
+      </ion-col>
+      <ion-col size="12">
+        <h2>{{detail?.['title']}}</h2>
+        <ng-container *ngFor="let genre of detail?.['genres'];let i = index">
+          <ion-chip [color]="i%2===0?'secondary': 'success'"
+            >{{genre?.['name']}}</ion-chip
+          >
+        </ng-container>
+      </ion-col>
+      <ion-col size="12">
+        <h3>Overview</h3>
+        <ion-text color="medium"> {{detail?.['overview']}} </ion-text>
+      </ion-col>
+      <ion-col size="12">
+        <h3>Cast</h3>
+        <app-image-card [contents]="castAndCrew?.['cast']"></app-image-card>
+      </ion-col>
+      <ion-col size="12">
+        <h3>Crew</h3>
+        <app-image-card [contents]="castAndCrew?.['crew']"></app-image-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

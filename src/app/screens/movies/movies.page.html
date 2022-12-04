@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Movies </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list-header>
+    <ion-label>TRENDING MOVIES</ion-label>
+  </ion-list-header>
+  <app-image-card
+    [contents]="trendingMovies"
+    (loadMore)="loadMore($event,'trendingMovies')"
+    (navigateToDetail)="navigateToDetail($event)"
+    [type]="'movie'"
+  ></app-image-card>
+  <ion-list-header>
+    <ion-label>POPULAR MOVIES</ion-label>
+  </ion-list-header>
+  <app-image-card
+    [contents]="popularMovies"
+    (loadMore)="loadMore($event,'popularMovies')"
+    (navigateToDetail)="navigateToDetail($event)"
+    [type]="'movie'"
+  ></app-image-card>
+  <ion-list-header>
+    <ion-label>POPULAR TVS</ion-label>
+  </ion-list-header>
+  <app-image-card
+    [contents]="popularTvs"
+    (loadMore)="loadMore($event,'popularTvs')"
+    (navigateToDetail)="navigateToDetail($event)"
+    [type]="'tv'"
+  ></app-image-card>
+  <ion-list-header>
+    <ion-label>TOP RATED TVS</ion-label>
+  </ion-list-header>
+  <app-image-card
+    [contents]="topRatedTvs"
+    (loadMore)="loadMore($event,'topRatedTvs')"
+    (navigateToDetail)="navigateToDetail($event)"
+    [type]="'tv'"
+  ></app-image-card>
+</ion-content>

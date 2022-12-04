@@ -1,0 +1,27 @@
+<ion-slides [options]="slideOption" (ionSlideReachEnd)="loadMoreData()">
+  <ng-container *ngFor="let content of contents">
+    <ion-slide *ngIf="(content?.['poster_path'] !== undefined && content?.['poster_path'] !== null)  || (content?.['profile_path'] !== undefined && content?.['profile_path'] !== null) ">
+      <ion-card
+        class="ion-no-padding ion-no-margin card"
+        (click)="navigate(content?.['id'])"
+      >
+        <!-- <p>{{content?.['poster_path'] ?? content?.['profile_path']}}</p> -->
+        <div
+          *ngIf="content?.['poster_path'] !== undefined; then test else test2"
+        ></div>
+        <ng-template #test>
+          <img
+            alt="Silhouette of mountains"
+            [src]="imgUrl+'/w400/'+content?.['poster_path']"
+          />
+        </ng-template>
+        <ng-template #test2>
+          <img
+            alt="Silhouette of mountains"
+            [src]="imgUrl+'/w400/'+ content?.['profile_path']"
+          />
+        </ng-template>
+      </ion-card>
+    </ion-slide>
+  </ng-container>
+</ion-slides>

@@ -1,0 +1,28 @@
+ion-thumbnail {
+  margin-right: 10px;
+}
+h3 {
+  margin-bottom: 0px;
+}
+h2 {
+  margin-bottom: 0px;
+  color: #808080;
+  font-family: RobotoCondensed-Bold !important;
+  text-align: center;
+}
+p {
+  margin-top: 0px;
+  color: #808080;
+}
+ion-icon {
+  font-size: 100px;
+  color: #808080;
+}
+.emptyMsg {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

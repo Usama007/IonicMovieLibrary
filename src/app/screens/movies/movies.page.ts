@@ -54,10 +54,11 @@ export class MoviesPage implements OnInit {
         break;
     }
   }
-  navigateToDetail(param:any) {
-    console.log(param);
-    
-    this.router.navigate(['/movie-detail',{id:param?.id,type:param?.type}])
+  navigateToDetail(param: any) {
+    this.router.navigate([
+      '/movie-detail',
+      { id: param?.id, type: param?.type },
+    ]);
   }
   getTrending() {
     this.apiService

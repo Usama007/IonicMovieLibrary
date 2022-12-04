@@ -1,9 +1,44 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>favorites</ion-title>
+    <ion-title>Favorites</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div *ngIf="favoriteList?.length>0; then listView else emptyMessage"></div>
+  <ng-template #listView>
+    <ion-list>
+      <ion-item *ngFor="let favorite of favoriteList" (click)="navigate(favorite?.id,favorite?.type)">
+          <ion-thumbnail>
+            <div
+              *ngIf="favorite?.['poster_path'] !== undefined; then movie else tv"
+            ></div>
+            <ng-template #movie>
+              <img
+                alt="Silhouette of mountains"
+                [src]="imgUrl+'/w400/'+favorite?.['poster_path']"
+              />
+            </ng-template>
+            <ng-template #tv>
+              <img
+                alt="Silhouette of mountains"
+                [src]="imgUrl+'/w400/'+ favorite?.['profile_path']"
+              />
+            </ng-template>
+          </ion-thumbnail>
+          <div>
+            <h3>{{favorite?.title ?? favorite?.original_name}}</h3>
+            <p>{{favorite?.tagline}}</p>
+          </div>
+      </ion-item>
+    </ion-list>
+  </ng-template>
+  <ng-template #emptyMessage  >
+    <div class="emptyMsg">
+      <ion-icon name="alert-circle"></ion-icon>
+      <h2>You don't have any favorite list</h2>
+    </div>
 
+  </ng-template>
+ 
 </ion-content>
